@@ -1,0 +1,35 @@
+<h2>Lista de Internos</h2>
+
+<div class="actions">
+  <a href="/internos/nuevo" class="btn btn-primary">Crear Nuevo Interno</a>
+</div>
+
+<table *ngIf="internos.length > 0; else noData">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Sexo</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interno of internos; trackBy: trackById">
+      <td>{{ interno.id }}</td>
+      <td>{{ interno.nombres }}</td>
+      <td>{{ interno.apellidos }}</td>
+      <td>{{ interno.sexo === 'M' ? 'Masculino' : interno.sexo === 'F' ? 'Femenino' : '' }}</td>
+      <td>{{ interno.estado }}</td>
+      <td>
+        <a href="/internos/editar/{{ interno.id }}" class="btn btn-secondary">Editar</a>
+        <button (click)="deleteInterno(interno.id)" class="btn btn-danger">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noData>
+  <p>No hay internos registrados.</p>
+</ng-template>
