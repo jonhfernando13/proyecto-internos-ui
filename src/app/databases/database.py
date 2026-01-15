@@ -2,11 +2,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from urllib.parse import quote_plus
 
-USER = "root"
-PASSWORD = quote_plus("Runaway123.")  # tu contraseña
+USER = "fernando"
+PASSWORD = quote_plus("runaway123")  # tu contraseña
 HOST = "127.0.0.1"
 PORT = "3306"
-DB_NAME = "appdb"
+DB_NAME = "interno"
 
 DATABASE_URL = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
 
